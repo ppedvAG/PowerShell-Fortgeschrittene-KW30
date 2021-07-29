@@ -1,4 +1,8 @@
+param(
+$ComputerName,
+$EventId,
+$Newest
+)
 
-
-Get-eventlog -LogName Security -ComputerName localhost | Where-Object EventId -eq 4624 | Select-Object -First 10
+Get-eventlog -LogName Security -ComputerName $ComputerName | Where-Object EventId -eq $EventId | Select-Object -First $Newest
 
