@@ -1,0 +1,9 @@
+
+#Kommentare
+
+#Ignorierung aller Dateien die mit .PNG enden
+*.png
+
+
+#Ignorierung eines Verzeichnises
+/logs
