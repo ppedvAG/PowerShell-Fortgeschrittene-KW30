@@ -29,14 +29,18 @@ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/abo
 [cmdletBinding(PositionalBinding=$false)] 
 param(
 
+[ValidateScript({Test-NetConnection -ComputerName $PSItem -CommonTCPPort WinRM -InformationLevel Quiet })]
 [Parameter(Position=0)]
 [string]$ComputerName = "localhost",
 
+[ValidateSet(4624,4625,4634)]
 [Parameter(Mandatory=$true)]
 [int]$EventId,
 
-[int]$Newest = 5
+[ValidateRange(5,10)]
+[int]$Newest = 2
 )
+
 
 <#
 PositionalBinding = $false | deaktiviert die Standard Nummierung der Parameter. Sodass dieses Skript nur über sogenannte benannte Parameter aufgerufen werden kann
