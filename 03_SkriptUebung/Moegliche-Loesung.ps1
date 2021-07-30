@@ -100,5 +100,5 @@ for($i = 1; $i -le $DirCount; $i++)
     
     $dir = New-Item -Path $TestDirPath -Name $DirName -ItemType Directory
 
-    New-TestFiles -Path $dir.FullName -FileCount $FileCount -NamePräfix ($DirName + "-Datei") -FileContent | Out-Null
+    New-TestFiles -Path $dir.FullName -FileCount $FileCount -NamePräfix ($DirName + "-Datei") | Out-Null
 }
