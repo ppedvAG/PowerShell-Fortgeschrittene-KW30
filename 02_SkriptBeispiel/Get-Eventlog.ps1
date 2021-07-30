@@ -56,7 +56,11 @@ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/abo
 
 #>
 
+#Optionale Ausgabe wenn Skript mit dem Parameter -Verbose gestartet wird
 Write-Verbose -Message "Das Skript wurde mit folgenden Werten gestartet EventID: $eventID"
+
+#Debughaltepunkt der ausgeführt wird wenn das Skript mit dem Parameter -debug gestartet wird
+Write-Debug -Message "Vor der Abfrage"
 
 Get-eventlog -LogName Security -ComputerName $ComputerName | Where-Object EventId -eq $EventId | Select-Object -First $Newest
 
